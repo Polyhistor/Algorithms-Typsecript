@@ -1,20 +1,21 @@
 var binarySearch = function (hayStack, needle) {
-    var lowIndex = 0;
-    var highIndex = hayStack.length;
+    var sortedHayStack = hayStack.sort();
+    var lowestIndex = 0;
+    var highestIndex = sortedHayStack.length;
     do {
-        var midPointIndex = Math.floor(lowIndex + (highIndex - lowIndex) / 2);
-        var midPointValue = hayStack[midPointIndex];
+        var midPointIndex = Math.floor(lowestIndex + (highestIndex - lowestIndex) / 2);
+        var midPointValue = sortedHayStack[midPointIndex];
         if (midPointValue === needle) {
             return true;
         }
-        else if (midPointValue > needle) {
-            highIndex = midPointIndex;
+        else if (needle > midPointValue) {
+            lowestIndex = midPointIndex + 1;
         }
         else {
-            lowIndex = midPointIndex + 1;
+            highestIndex = midPointIndex;
         }
-    } while (lowIndex < highIndex);
+    } while (lowestIndex < highestIndex);
     return false;
 };
-console.log(binarySearch([1, 2, 3, 4], 4));
+console.log(binarySearch([1, 2, 3, 6], 7));
 //# sourceMappingURL=binarySearch.js.map
