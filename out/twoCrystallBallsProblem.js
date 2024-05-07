@@ -28,5 +28,16 @@ twoCrystallBalls([
     true,
     true,
 ]);
-// console.log(twoCrystallBalls([false, true, false, false, false, false]));
+console.log(twoCrystallBalls([
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+]));
 //# sourceMappingURL=twoCrystallBallsProblem.js.map

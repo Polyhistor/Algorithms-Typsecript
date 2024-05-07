@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Debug Typescript",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/twoCrystallBallsProblem.ts",
+      "program": "${workspaceFolder}/bubblesort.ts",
       // "runtimeArgs": [
       //   "-r",
       //   "ts-node/register",
