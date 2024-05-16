@@ -110,14 +110,17 @@ class LinkedList<T> {
       current = newNode;
     }
 
+    let previous;
+
     // we will traverse untill we reach before the
     while (nodeIdex < index) {
+      previous = current;
       current = current.next;
       nodeIdex++;
     }
 
-    newNode.next = current.next;
-    current.next = newNode;
+    previous.next = newNode;
+    newNode.next = current;
   }
 
   print() {

@@ -35,7 +35,7 @@ var LinkedList = /** @class */ (function () {
         return deletedHeadValue;
     };
     LinkedList.prototype.removeLast = function () {
-        if (this.isEmpty)
+        if (this.isEmpty())
             return null;
         if (this.size === 1) {
             var headNodeValue = this.head.value;
@@ -49,7 +49,7 @@ var LinkedList = /** @class */ (function () {
             previous = current;
             current = current.next;
         }
-        previous.next === null;
+        previous.next = null;
         this.size--;
         return current.value;
     };
@@ -74,7 +74,7 @@ var LinkedList = /** @class */ (function () {
         if (index > this.size) {
             return "Index out of range";
         }
-        if (this.isEmpty) {
+        if (this.isEmpty()) {
             return null;
         }
         var current = this.head;
@@ -87,6 +87,7 @@ var LinkedList = /** @class */ (function () {
         // we will traverse untill we reach before the
         while (nodeIdex < index) {
             current = current.next;
+            nodeIdex++;
         }
         newNode.next = current.next;
         current.next = newNode;
@@ -110,9 +111,8 @@ myLinkedList.push(2);
 myLinkedList.push(3);
 myLinkedList.push(4);
 myLinkedList.push(5);
-myLinkedList.removeLast();
+// myLinkedList.removeLast();
+myLinkedList.insertAt(3, 7);
 var allNodes = myLinkedList.print();
 console.log(allNodes);
-// myLinkedList.insertAt(2, 7);
-// console.log(myLinkedList);
 //# sourceMappingURL=singlyLikedListPr.js.map
