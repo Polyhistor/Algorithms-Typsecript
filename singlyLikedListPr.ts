@@ -48,18 +48,24 @@ class LinkedList<T> {
   }
 
   removeLast() {
-    if (this.isEmpty) return null;
+    if (this.isEmpty()) return null;
+
     if (this.size === 1) {
-      return this.getFirst;
+      const headNodeValue = this.head.value;
+      this.head = null;
+      this.size--;
+      return headNodeValue;
     }
 
     let current = this.head;
+    let previous;
 
-    if (current.next?.next !== null) {
+    while (current.next !== null) {
+      previous = current;
       current = current.next;
     }
 
-    current.next = null;
+    previous.next = null;
     this.size--;
     return current.value;
   }
@@ -85,17 +91,33 @@ class LinkedList<T> {
     return this.head === null;
   }
 
-  insertAt(index: number): T {
-    let current = this.head;
-    let nodeIndex = 0;
-
-    while (current.next !== null) {
-      current = current.next;
-      if (nodeIndex === index) {
-        return current.value;
-      }
-      nodeIndex + 1;
+  insertAt(index: number, value: T): string {
+    if (index > this.size) {
+      return "Index out of range";
     }
+
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    let current = this.head;
+    let nodeIdex = 0;
+
+    const newNode = new SinglyLinkedListNode(value);
+
+    if (index === 0) {
+      current.next = current;
+      current = newNode;
+    }
+
+    // we will traverse untill we reach before the
+    while (nodeIdex < index) {
+      current = current.next;
+      nodeIdex++;
+    }
+
+    newNode.next = current.next;
+    current.next = newNode;
   }
 
   print() {
@@ -103,9 +125,12 @@ class LinkedList<T> {
     let current = this.head;
 
     while (current.next !== null) {
-      current = current.next;
       allNodes.push(current.value);
+      current = current.next;
     }
+
+    // the tail value
+    allNodes.push(current.value);
 
     return allNodes;
   }
@@ -113,10 +138,16 @@ class LinkedList<T> {
 
 const myLinkedList = new LinkedList<number>();
 
-// console.log(myLinkedList);
-
 myLinkedList.push(1);
 myLinkedList.push(2);
-myLinkedList.removeLast();
+myLinkedList.push(3);
+myLinkedList.push(4);
+myLinkedList.push(5);
 
-console.log(myLinkedList);
+// myLinkedList.removeLast();
+
+myLinkedList.insertAt(3, 7);
+
+const allNodes = myLinkedList.print();
+
+console.log(allNodes);

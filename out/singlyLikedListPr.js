@@ -35,29 +35,84 @@ var LinkedList = /** @class */ (function () {
         return deletedHeadValue;
     };
     LinkedList.prototype.removeLast = function () {
-        // let tailNodeValue;
-        var theNodeBeforeTheLast;
-        // we have reached the end
-        while (this.head.next === null) {
-            theNodeBeforeTheLast = this.head;
-            this.head = this.head.next;
+        if (this.isEmpty)
+            return null;
+        if (this.size === 1) {
+            var headNodeValue = this.head.value;
+            this.head = null;
+            this.size--;
+            return headNodeValue;
         }
-        theNodeBeforeTheLast.next = null;
-        return theNodeBeforeTheLast.value;
+        var current = this.head;
+        var previous;
+        while (current.next !== null) {
+            previous = current;
+            current = current.next;
+        }
+        previous.next === null;
+        this.size--;
+        return current.value;
     };
-    LinkedList.prototype.getFirst = function () { };
-    LinkedList.prototype.getLast = function () { };
+    LinkedList.prototype.getFirst = function () {
+        if (this.isEmpty)
+            return null;
+        return this.head;
+    };
+    LinkedList.prototype.getLast = function () {
+        if (this.isEmpty)
+            return null;
+        var current = this.head;
+        while (current.next !== null) {
+            current = current.next;
+        }
+        return current;
+    };
     LinkedList.prototype.isEmpty = function () {
         return this.head === null;
     };
-    LinkedList.prototype.insertAt = function () { };
-    LinkedList.prototype.print = function () { };
+    LinkedList.prototype.insertAt = function (index, value) {
+        if (index > this.size) {
+            return "Index out of range";
+        }
+        if (this.isEmpty) {
+            return null;
+        }
+        var current = this.head;
+        var nodeIdex = 0;
+        var newNode = new SinglyLinkedListNode(value);
+        if (index === 0) {
+            current.next = current;
+            current = newNode;
+        }
+        // we will traverse untill we reach before the
+        while (nodeIdex < index) {
+            current = current.next;
+        }
+        newNode.next = current.next;
+        current.next = newNode;
+    };
+    LinkedList.prototype.print = function () {
+        var allNodes = [];
+        var current = this.head;
+        while (current.next !== null) {
+            allNodes.push(current.value);
+            current = current.next;
+        }
+        // the tail value
+        allNodes.push(current.value);
+        return allNodes;
+    };
     return LinkedList;
 }());
 var myLinkedList = new LinkedList();
-// console.log(myLinkedList);
 myLinkedList.push(1);
 myLinkedList.push(2);
+myLinkedList.push(3);
+myLinkedList.push(4);
+myLinkedList.push(5);
 myLinkedList.removeLast();
-console.log(myLinkedList);
+var allNodes = myLinkedList.print();
+console.log(allNodes);
+// myLinkedList.insertAt(2, 7);
+// console.log(myLinkedList);
 //# sourceMappingURL=singlyLikedListPr.js.map
