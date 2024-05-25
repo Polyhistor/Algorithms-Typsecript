@@ -43,6 +43,10 @@ const shouldWalk = (
   }
 
   // recurse
+  seen[currentPoint.x][currentPoint.y] = true
+  path.push(currentPoint)
+
+
   if(shouldWalk())
 
 
