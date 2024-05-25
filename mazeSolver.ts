@@ -21,10 +21,10 @@ const walk = (
   // 1. Base Case
   // off the map
   if (
-    current.x < 0 ||
-    current.x >= maze[0].length ||
-    current.y < 0 ||
-    current.y >= maze.length
+    current.x < 0 || // off the grid of X from left
+    current.x >= maze[0].length || // off the grid of X from right
+    current.y < 0 || // off the grid from top
+    current.y >= maze.length // off the grid from bottom
   ) {
     return false;
   }
@@ -40,6 +40,7 @@ const walk = (
     return true;
   }
 
+  // already seen
   if (seen[current.y][current.x]) {
     return false;
   }
@@ -60,6 +61,7 @@ const walk = (
 
   // post
   path.pop();
+
   return false;
 };
 
@@ -77,6 +79,7 @@ export const mazeSolver = (
   }
 
   walk(maze, wall, start, end, seen, path);
+
   return path;
 };
 

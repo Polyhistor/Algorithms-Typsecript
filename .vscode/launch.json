@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Debug Typescript",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/singlyLikedListPr.ts",
+      "program": "${workspaceFolder}/mazeSolver.ts",
       // "runtimeArgs": [
       //   "-r",
       //   "ts-node/register",

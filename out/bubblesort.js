@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.bubbleSort = void 0;
-var bubbleSort = function (array) {
-    for (var i = 0; i < array.length; i++) {
-        for (var j = 0; j < array.length - 1 - i; j++) {
+const bubbleSort = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length - 1 - i; j++) {
             if (array[j] > array[j + 1]) {
-                var temporaryValue = array[j];
+                const temporaryValue = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = temporaryValue;
             }

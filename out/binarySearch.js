@@ -1,10 +1,10 @@
-var binarySearch = function (hayStack, needle) {
-    var sortedHayStack = hayStack.sort();
-    var lowestIndex = 0;
-    var highestIndex = sortedHayStack.length;
+const binarySearch = (hayStack, needle) => {
+    const sortedHayStack = hayStack.sort();
+    let lowestIndex = 0;
+    let highestIndex = sortedHayStack.length;
     do {
-        var midPointIndex = Math.floor(lowestIndex + (highestIndex - lowestIndex) / 2);
-        var midPointValue = sortedHayStack[midPointIndex];
+        let midPointIndex = Math.floor(lowestIndex + (highestIndex - lowestIndex) / 2);
+        let midPointValue = sortedHayStack[midPointIndex];
         if (midPointValue === needle) {
             return true;
         }

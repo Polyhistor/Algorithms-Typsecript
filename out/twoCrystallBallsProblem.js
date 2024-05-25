@@ -1,6 +1,6 @@
-var twoCrystallBalls = function (breaks) {
-    var jumpAmount = Math.floor(Math.sqrt(breaks.length));
-    var i = jumpAmount;
+const twoCrystallBalls = (breaks) => {
+    const jumpAmount = Math.floor(Math.sqrt(breaks.length));
+    let i = jumpAmount;
     for (; i < breaks.length; i += jumpAmount) {
         if (breaks[i]) {
             // so the first crystall ball has reached a ceiling point at which it breaks, we now have to chek between this point and the prior jump we did
@@ -8,7 +8,7 @@ var twoCrystallBalls = function (breaks) {
         }
     }
     i -= jumpAmount;
-    for (var j = i + 1; j <= i + jumpAmount; j++) {
+    for (let j = i + 1; j <= i + jumpAmount; j++) {
         if (breaks[j]) {
             return j;
         }
