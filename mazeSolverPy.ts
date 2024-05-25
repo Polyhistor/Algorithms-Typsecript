@@ -43,13 +43,17 @@ const shouldWalk = (
   }
 
   // recurse
-  seen[currentPoint.x][currentPoint.y] = true
-  path.push(currentPoint)
+  seen[currentPoint.x][currentPoint.y] = true;
+  path.push(currentPoint);
 
+  // we continue walking
+  if (shouldWalk(maze, wall, currentPoint, end, seen, path)) {
+    return true;
+  }
 
-  if(shouldWalk())
-
-
+  // if we are in a deadlock we want to remove this step from the recursion stack
+  path.pop;
+  return false;
 };
 
 const mazeSolver = (maze: string[], wall: string, start: Point, end: Point) => {
@@ -60,4 +64,8 @@ const mazeSolver = (maze: string[], wall: string, start: Point, end: Point) => {
   for (let i; i < maze.length; i++) {
     seen.push(new Array(maze[0].length).fill(false));
   }
+
+  shouldWalk(maze, wall, start, end, seen, path);
+
+  return path;
 };
