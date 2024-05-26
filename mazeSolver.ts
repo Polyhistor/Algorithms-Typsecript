@@ -55,6 +55,7 @@ const walk = (
     if (
       walk(maze, wall, { x: current.x + x, y: current.y + y }, end, seen, path)
     ) {
+      // by this point we have recursed and stored so many functions, and this return true, ends the whole recursion which makes the stack of functions to be called in a FILO order
       return true;
     }
   }
@@ -86,7 +87,7 @@ export const mazeSolver = (
 const maze = [
   "#########",
   "#S#...#E#",
-  "#.#.#.#.#",
+  "#.#.#.###",
   "#.#.#.#.#",
   "#.#.#...#",
   "#.#.###.#",
