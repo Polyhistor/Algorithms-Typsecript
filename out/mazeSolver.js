@@ -26,6 +26,7 @@ const walk = (maze, wall, current, end, seen, path) => {
         path.push(end);
         return true;
     }
+    // already seen
     if (seen[current.y][current.x]) {
         return false;
     }
@@ -36,6 +37,7 @@ const walk = (maze, wall, current, end, seen, path) => {
     for (let i = 0; i < direction.length; i++) {
         const [x, y] = direction[i];
         if (walk(maze, wall, { x: current.x + x, y: current.y + y }, end, seen, path)) {
+            // by this point we have recursed and stored so many functions, and this return true, ends the whole recursion which makes the stack of functions to be called in a FILO order
             return true;
         }
     }
@@ -56,7 +58,7 @@ exports.mazeSolver = mazeSolver;
 const maze = [
     "#########",
     "#S#...#E#",
-    "#.#.#.#.#",
+    "#.#.#.###",
     "#.#.#.#.#",
     "#.#.#...#",
     "#.#.###.#",
