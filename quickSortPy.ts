@@ -19,6 +19,9 @@ const partitioner = (
       }
     }
   }
+
+  pivotIndex++;
+  array[pivotIndex] = array[highestIndex];
 };
 
 const sorter = (array: number[], lowestIndex: number, highestIndex: number) => {
