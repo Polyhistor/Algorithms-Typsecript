@@ -29,4 +29,5 @@ function quicksort(arr) {
     qs(arr, 0, arr.length - 1);
 }
 var result = quicksort([1, 3, 10, 4, 6]);
-console.log(reuslt);
+console.log(result);
+console.log('yo');

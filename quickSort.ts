@@ -31,12 +31,14 @@ function partition(arr:number[], lo:number, hi:number): number {
 }
 
 export default function quicksort (arr:number[]): void {
- qs(arr,0, arr.length - 1)
+ return qs(arr,0, arr.length - 1)
 }
 
 
 
 const result = quicksort([1,3,10,4,6])
-console.log(reuslt)
+
+console.log(result);
+console.log('yo');
 
 
