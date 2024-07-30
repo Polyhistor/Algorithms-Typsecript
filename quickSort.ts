@@ -9,7 +9,7 @@ function qs(arr:number[], lo:number, hi:number): void{
   qs(arr,pivotIdx+1, hi)
 }
 
-function partition(arr:number, lo:number, hi:number): number {
+function partition(arr:number[], lo:number, hi:number): number {
   const pivot = arr[hi]
 
   let idx = lo - 1 
@@ -36,7 +36,7 @@ export default function quicksort (arr:number[]): void {
 
 
 
-
-
+const result = quicksort([1,3,10,4,6])
+console.log(reuslt)
 
 
