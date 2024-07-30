@@ -6,6 +6,7 @@ function qs(arr:number[], lo:number, hi:number): void{
   const pivotIdx = partition(arr, lo, hi)
 
   qs(arr,lo, pivotIdx -1)
+  qs(arr,pivotIdx+1, hi)
 }
 
 function partition(arr:number, lo:number, hi:number): number {
@@ -25,7 +26,7 @@ function partition(arr:number, lo:number, hi:number): number {
   idx++
   arr[hi] = arr[idx]
   arr[idx] = pivot 
-
+ 
   return idx;
 }
 
