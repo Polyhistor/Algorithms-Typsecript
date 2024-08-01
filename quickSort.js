@@ -26,7 +26,7 @@ function partition(arr, lo, hi) {
     return idx;
 }
 function quicksort(arr) {
-    qs(arr, 0, arr.length - 1);
+    return qs(arr, 0, arr.length - 1);
 }
 var result = quicksort([1, 3, 10, 4, 6]);
 console.log(result);

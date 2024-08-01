@@ -19,7 +19,7 @@ function partition(arr:number[], lo:number, hi:number): number {
       idx++ 
       const tmp = arr[i]
       arr[i] = arr[idx]
-      arr[idx] = tmp 
+     arr[idx] = tmp 
     }
   }
 
